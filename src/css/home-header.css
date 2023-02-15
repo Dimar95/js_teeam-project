@@ -1,6 +1,4 @@
-body{
-    box-sizing: border-box;
-}
+
 .container{
     margin-left: auto;
     margin-right: auto;
@@ -123,7 +121,7 @@ body{
 .search-name{
     position: absolute;
     top: 4px;
-    left: 10px;
+    left: 0px;
     padding-right: 4px;
     font-weight: 400;
     font-size: 12px;
@@ -131,14 +129,14 @@ body{
     letter-spacing: 0.02em;
     color: #111321;
     opacity: 0.4;
-    margin-left: 48px;
+    margin-left: 32px;
     opacity: 0.4;
     border-right: 1px solid #111321;
 }
 
 .input-search {
-    width: 125px;
-    padding: 5px 0 5px 105px;
+    width: 150px;
+    padding: 5px 0 5px 80px;
     display: block;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
@@ -187,8 +185,27 @@ body{
 }
 
 .icon-toggle-theme{
+
+}
+.theme-descr{
+    display: none;
+}
+.icon-them-sun{
+    display: flex;
+}
+.icon-them-moon{
+    display: flex;
+}
+.theme-button{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    width: 40px;
+    height: 20px;
+    padding: 0;
     margin-right: 8px;
     margin-left: 8px;
+    border: none;
 }
 @media screen and (min-width: 768px) {
     .logo{
@@ -235,13 +252,16 @@ body{
 
     .site-nav--item{
         width: 100%;
-
+    }
+    .site-nav--link:hover{
+        background-color: transparent;
+        color: #4440F7;
     }
     .site-nav--item:not(:last-child){
         margin: 0 44px 0 0;
     }    
     .site-nav--item:last-child{
-        margin: 0 36px 0 0;
+        margin: 0 32px 0 0;
     }
     .icon-right{
         display: none;
@@ -263,25 +283,9 @@ body{
         flex-direction: row;
         transform: none;
     }
-    .search-name{
-        position: absolute;
-        top: 4px;
-        left: 10px;
-        padding-right: 4px;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 21px;
-        letter-spacing: 0.02em;
-        color: #111321;
-        opacity: 0.4;
-        margin-left: 48px;
-        opacity: 0.4;
-        border-right: 1px solid #111321;
-    }
     
     .input-search {
-        width: 125px;
-        padding: 5px 0 5px 105px;
+        width: 173px;
         display: block;
         transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         outline: none;
@@ -306,6 +310,7 @@ body{
     
     .theme-toggle{
         display: flex;
+        align-items: center;
         margin-top: auto;
         position: absolute;
         top: 0px;
@@ -313,5 +318,67 @@ body{
     }
     .current-page{
         border-bottom: 1px solid #4440F7;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .logo{
+        font-size: 42px;
+        line-height: 57px;
+    }
+    .container{
+        width: 1280px;
+    }
+
+    .home-header{
+        padding: 28px 0px 28px 0px;
+    }
+    .logo-header{
+        margin-right: 102px;
+    }
+    .site-nav--link{
+        font-size: 18px;
+        line-height: 25px;
+        padding-bottom: 5px;
+    }
+
+    .site-nav--item:not(:last-child){
+        margin-right: 69px;
+    }    
+    .site-nav--item:last-child{
+        margin-right: 147px;
+    }
+
+    
+    .input-search {
+        width: 248px;
+    }
+    
+    .theme-toggle{
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        position: absolute;
+        top: 0px;
+        right: -600px;
+    }
+    .theme-descr{
+    display: inline;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    }
+    .icon-them-sun{
+        display: flex;
+    }
+    .icon-them-moon{
+        display: flex;
+    }
+    .theme-icon-light{
+        display: none;
+    }
+    .theme-icon-dark{
+        display: none;
     }
 }
