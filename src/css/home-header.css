@@ -1,4 +1,6 @@
-
+body.is-open{
+    overflow: hidden;
+}
 .container{
     margin-left: auto;
     margin-right: auto;
@@ -51,7 +53,9 @@
 }
 .menu-container.is-open{
     display: block;
-    height: 100vh;
+    padding-bottom: 18px;
+    overflow-y: scroll;
+    height: 85vh;
 }
 .icon-close{
     display: none;
@@ -181,12 +185,11 @@
     align-items:flex-end;
     margin-top: auto;
     position: absolute;
-    bottom: 0;
+    bottom: 18px;
+    
 }
 
-.icon-toggle-theme{
 
-}
 .theme-descr{
     display: none;
 }
@@ -313,6 +316,7 @@
         align-items: center;
         margin-top: auto;
         position: absolute;
+        bottom: 0;
         top: 0px;
         right: -370px;
     }
@@ -381,4 +385,5 @@
     .theme-icon-dark{
         display: none;
     }
+
 }

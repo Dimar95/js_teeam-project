@@ -1,0 +1,161 @@
+.section{
+    margin-top: 24px;
+    padding-bottom: 500px;
+}
+.position-categories{
+    display: flex;
+    position: relative;
+}
+.categories-list{
+    display: none;
+}
+.categories-list.is-open{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+position: absolute;
+border: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
+color: #4B48DB;
+border-radius: 20px;
+box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+}
+.categories-menu{
+    margin-right: 24px;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    padding: 5px 37px 5px 13px;
+    border-radius: 20px;
+    border: 1px solid #4B48DB;
+
+}
+
+.input-calendar{
+    padding: 5px 5px 5px 20px;
+    text-align: center;
+    width: 152px;
+    display: block;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    border-radius: 20px;
+    border: 1px solid #111321;
+    background-color: #FFF;
+}
+.categories-button{
+    background-color: transparent;
+    border-color: transparent;
+    position: absolute;
+    top: 3px;
+    left: 80px;
+}
+.categories-item{
+    position: relative;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #4440F7;
+    margin: 16px 12px 0;
+}
+.categories-others{
+    display: none;
+}
+.categories-box-other{
+    position: relative;
+    margin-top: 0;
+}
+.categories-button-other{
+    display: none;
+}
+    @media screen and (min-width: 768px) {
+        .section{
+            margin-top: 28px;
+        }
+
+        .categories-list{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        position: static;
+        border: none;
+        }
+        .categories-menu{
+            display: none;
+        }
+        .input-calendar{
+            padding: 5px 5px 5px 20px;
+            text-align: center;
+            width: 152px;
+            display: block;
+            transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+            border-radius: 20px;
+            border: 1px solid #111321;
+            background-color: #FFF;
+        }
+        .categories-button{
+            display: none;
+        }
+        .categories-item{
+            position: static;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            color: #4440F7;
+            margin: 0px 12px 0;
+            border: 1px solid #4440F7;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 21px;
+        }
+        .categories-others{
+            display: block;
+            position: static;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            color: #4440F7;
+            margin: 0px 12px 0;
+            border: 1px solid #4440F7;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 48px 8px 24px;
+        }
+        .categories-list-others{
+            display: none;
+        }
+        .categories-list-others.is-open{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+        color: #4B48DB;
+        border-radius: 20px;
+        }
+        .categories-item-other{
+            position: relative;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #4440F7;
+            margin: 12px 24px 0 12px;
+        }
+        .categories-button-other{
+            display: block;
+            background-color: transparent;
+            border-color: transparent;
+            position: absolute;
+            top: 6px;
+            right: 22px;
+        }
+
+    }

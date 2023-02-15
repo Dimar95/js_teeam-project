@@ -6,9 +6,9 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Poppins&display=swap');
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./home-header.css');
 @import url('./utils/common.css');
+@import url('./home-header.css');
+@import url('./categories.css');
 
 :root {
   font-family: 'Manrope', sans-serif;
