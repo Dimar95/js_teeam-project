@@ -12,10 +12,8 @@ const options = {
     time_24hr: true,
     defaultDate: new Date(),
     dateFormat: "DD-MM-YYYY",
-    nextArrow: ">",
       // onClose
   };
-  let openList = false;
   let counterSection = 0;
 
   const flatpickrTimer = new flatpickr(inputRef, options);
@@ -31,12 +29,24 @@ function onFilterCategories(arrayNews) {
       if (screenWidth < 768) {
       onMarkupCategories(categorie.section)
         
-      } else {
+      } else if (screenWidth >= 768 && screenWidth < 1280) {
+
         onMarkupOtherCategories(categorie.section)
-        
+
+      } else {
+        onMarkupSixCategories(categorie.section)
       }
     }
   })
+}
+function onMarkupSixCategories(section) {
+  counterSection += 1
+  if (counterSection < 7) {
+    ulCategoriesRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item">${section}</li></a>`)
+    return
+  } else {
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item-other">${section}</li></a>`)
+  }
 }
 function onMarkupOtherCategories(section) {
   counterSection += 1
