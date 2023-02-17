@@ -71,11 +71,16 @@ box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
 .calendar-descr{
     display: none;
 }
+.categories-link{
+    cursor: pointer;
+}
     @media screen and (min-width: 768px) {
         .section{
             margin-top: 28px;
         }
-
+        .categories-box{
+            display: flex;
+        }
         .categories-list{
         display: flex;
         flex-direction: row;
@@ -112,7 +117,11 @@ box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             justify-content: center;
             align-items: center;
+        }
+        .categories-link{
+            display: block;
             padding: 8px 21px;
+            overflow: visible;
         }
         .categories-others{
             display: block;
@@ -132,6 +141,9 @@ box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
             display: none;
         }
         .categories-list-others.is-open{
+            width: 180%;
+            height: 320px;
+            overflow-y:scroll ;
         display: flex;
         flex-direction: column;
         justify-content: center;

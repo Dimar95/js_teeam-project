@@ -1,7 +1,5 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+
 import {fetchCategories} from '../js/fetchSemantic'
-const inputRef = document.getElementById('datetime-picker')
 const buttonCategoriesRef = document.querySelector('.categories-button')
 const buttonCategoriesOtherRef = document.querySelector('.categories-button-other')
 const ulCategoriesRef = document.querySelector('.categories-list')
@@ -16,7 +14,6 @@ const options = {
   };
   let counterSection = 0;
 
-  const flatpickrTimer = new flatpickr(inputRef, options);
 
 function onFilterCategories(arrayNews) {
   const arraySection = []
@@ -27,14 +24,14 @@ function onFilterCategories(arrayNews) {
     } else {
       arraySection.push(categorie.section)
       if (screenWidth < 768) {
-      onMarkupCategories(categorie.section)
+      onMarkupCategories(onFormatingString(categorie.section))
         
       } else if (screenWidth >= 768 && screenWidth < 1280) {
 
-        onMarkupOtherCategories(categorie.section)
+        onMarkupOtherCategories(onFormatingString(categorie.section))
 
       } else {
-        onMarkupSixCategories(categorie.section)
+        onMarkupSixCategories(onFormatingString(categorie.section))
       }
     }
   })
@@ -42,23 +39,24 @@ function onFilterCategories(arrayNews) {
 function onMarkupSixCategories(section) {
   counterSection += 1
   if (counterSection < 7) {
-    ulCategoriesRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item">${section}</li></a>`)
+    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
     return
   } else {
-    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item-other">${section}</li></a>`)
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-other"><a class="categories-link">${section}</a></li>`)
   }
+
 }
 function onMarkupOtherCategories(section) {
   counterSection += 1
   if (counterSection < 5) {
-    ulCategoriesRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item">${section}</li></a>`)
+    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
     return
   } else {
-    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item-other">${section}</li></a>`)
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-other"><a class="categories-link">${section}</a></li>`)
   }
 }
 function onMarkupCategories(section) {
-  ulCategoriesRef.insertAdjacentHTML('beforeend',`<a><li class="categories-item">${section}</li></a>`)
+  ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
 }
 
 function categoriesIsOpen() {
@@ -75,11 +73,21 @@ buttonCategoriesOtherRef.addEventListener('click', () => {
 })
 
 
+function onFormatingString(string) {
+  const formatingString = string[0].toUpperCase() + string.slice(1, string.length)
+  return formatingString;
+}
 
-// if (openList) {
-//   openList = false;
-//   ulCategoriesRef.innerHTML = ''
-//   return
-// } else {
-//   openList = true;
+
+
+
+
+// function onFormatingString(string) {
+//   if (string.length > 11) {
+//     const lengthString = string.slice(0, 11) + "..."
+//     return lengthString
+//   } else{
+//     const formatingString = string[0].toUpperCase() + string.slice(1, string.length)
+//     return formatingString;
+//   }
 // }

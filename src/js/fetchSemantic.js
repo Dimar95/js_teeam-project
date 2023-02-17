@@ -1,7 +1,7 @@
 import axios from "axios";
 export async function fetchCategories() {
   try {
-    const BASE_URL = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key='
+    const BASE_URL = 'https://api.nytimes.com/svc//news/v3/content/section-list.json?api-key='
     const KEY = '2CU5jHC0OFWuoOquTogFU31832ZDQk3X'
     const data = await axios.get(`${BASE_URL}${KEY}`);
     
@@ -10,3 +10,4 @@ export async function fetchCategories() {
   console.error(error);
 }
   }
+  // https://api.nytimes.com/svc//news/v3/content/section-list.json?api-key=eQ8t8FWqeAGnKDTtIFrHmgZCflFrUTcV
