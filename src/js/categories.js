@@ -1,19 +1,10 @@
-
 import {fetchCategories} from '../js/fetchSemantic'
-const buttonCategoriesRef = document.querySelector('.categories-button')
-const buttonCategoriesOtherRef = document.querySelector('.categories-button-other')
+const buttonCategoriesRef = document.querySelector('.button-categories')
 const ulCategoriesRef = document.querySelector('.categories-list')
 const ulCategoriesOtherRef = document.querySelector('.categories-list-others')
 const screenWidth = window.screen.width
-const options = {
-    // enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    dateFormat: "DD-MM-YYYY",
-      // onClose
-  };
-  let counterSection = 0;
-
+let counterSection = 0;
+searchCategories()
 
 function onFilterCategories(arrayNews) {
   const arraySection = []
@@ -24,53 +15,57 @@ function onFilterCategories(arrayNews) {
     } else {
       arraySection.push(categorie.section)
       if (screenWidth < 768) {
-      onMarkupCategories(onFormatingString(categorie.section))
-        
+      onMarkupMobil(onFormatingString(categorie.section))
       } else if (screenWidth >= 768 && screenWidth < 1280) {
-
-        onMarkupOtherCategories(onFormatingString(categorie.section))
-
+        onMarkupTablet(onFormatingString(categorie.section))
       } else {
         onMarkupSixCategories(onFormatingString(categorie.section))
       }
     }
   })
 }
-function onMarkupSixCategories(section) {
-  counterSection += 1
-  if (counterSection < 7) {
-    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
-    return
-  } else {
-    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-other"><a class="categories-link">${section}</a></li>`)
-  }
 
-}
-function onMarkupOtherCategories(section) {
-  counterSection += 1
-  if (counterSection < 5) {
-    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
-    return
-  } else {
-    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-other"><a class="categories-link">${section}</a></li>`)
-  }
-}
-function onMarkupCategories(section) {
+function onMarkupMobil(section) {
+  ulCategoriesRef.classList.add('is-mobil')
   ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item"><a class="categories-link">${section}</a></li>`)
 }
 
+function onMarkupTablet(section) {
+  counterSection += 1
+  if (counterSection < 5) {
+    ulCategoriesRef.classList.add('is-tablet')
+    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item-tablet"><a class="categories-link">${section}</a></li>`)
+    return
+  } else {
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-tablet-other"><a class="categories-link">${section}</a></li>`)
+  }
+}
+
+function onMarkupSixCategories(section) {
+  counterSection += 1
+  if (counterSection < 7) {
+    ulCategoriesRef.classList.add('is-desktop')
+    ulCategoriesRef.insertAdjacentHTML('beforeend',`<li class="categories-item-tablet"><a class="categories-link">${section}</a></li>`)
+    return
+  } else {
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',`<li class="categories-item-tablet-other"><a class="categories-link">${section}</a></li>`)
+  }
+
+}
+
+
 function categoriesIsOpen() {
   ulCategoriesRef.classList.toggle('is-open')
+  buttonCategoriesRef.classList.toggle('is-open')
+  ulCategoriesOtherRef.classList.toggle('is-open')
 }
 function searchCategories() {
   fetchCategories().then(onFilterCategories).catch(console.log('error'))
 }
-searchCategories()
-buttonCategoriesRef.addEventListener('click', categoriesIsOpen)
-buttonCategoriesOtherRef.addEventListener('click', () => {
-  ulCategoriesOtherRef.classList.toggle('is-open')
 
-})
+
+buttonCategoriesRef.addEventListener('click', categoriesIsOpen)
+
 
 
 function onFormatingString(string) {

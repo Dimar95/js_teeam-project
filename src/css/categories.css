@@ -6,22 +6,23 @@
     display: flex;
     position: relative;
 }
-.categories-list{
+.categories-box{
+    display: flex;
+
+}
+.menu-box{
+    position: relative;
+}
+.categories-others-menu{
     display: none;
 }
-.categories-list.is-open{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-position: absolute;
-border: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
-color: #4B48DB;
-border-radius: 20px;
-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+.categories-list.is-mobil{
+    display: none;
+}
+.categories-list-others{
+    display: none;
 }
 .categories-menu{
-    margin-right: 24px;
     margin-bottom: 0;
     font-weight: 400;
     font-size: 12px;
@@ -31,188 +32,136 @@ box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     border: 1px solid #4B48DB;
 }
-.input-calendar{
-    padding: 5px 5px 5px 20px;
-    text-align: center;
-    width: 152px;
-    display: block;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    outline: none;
-    border-radius: 20px;
-    border: 1px solid #111321;
-    background-color: #FFF;
+.button-categories.is-open{
+    transform: rotateX(180deg);
 }
-.categories-button{
+.categories-list.is-mobil.is-open{
+    position: absolute;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
+    color: #4B48DB;
+    border-radius: 20px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
+    padding: 14px;
+    max-height: 148px;
+    overflow-y:scroll ;
+
+}
+.button-categories{
     background-color: transparent;
     border-color: transparent;
     position: absolute;
     top: 3px;
-    left: 80px;
+    right: 3px;
 }
 .categories-item{
-    position: relative;
     font-size: 12px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.01em;
     color: #4440F7;
-    margin: 16px 12px 0;
+    margin-bottom: 12px;
 }
-.categories-others{
-    display: none;
-}
-.categories-box-other{
-    position: relative;
-    margin-top: 0;
-}
-.categories-button-other{
-    display: none;
-}
-.calendar-descr{
-    display: none;
-}
-.categories-link{
-    cursor: pointer;
-}
-    @media screen and (min-width: 768px) {
-        .section{
-            margin-top: 28px;
-        }
-        .categories-box{
-            display: flex;
-        }
-        .categories-list{
+@media screen and (min-width: 768px) {
+    .categories-menu{
+        display: none;
+    }
+    .categories-list.is-tablet{
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
         position: static;
         border: none;
-        }
-        .categories-menu{
-            display: none;
-        }
-        .input-calendar{
-            padding: 5px 5px 5px 20px;
-            text-align: center;
-            width: 152px;
-            display: block;
-            transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            outline: none;
-            border-radius: 20px;
-            border: 1px solid #111321;
-            background-color: #FFF;
-        }
-        .categories-button{
-            display: none;
-        }
-        .categories-item{
-            position: static;
-            font-size: 12px;
-            line-height: 16px;
-            text-align: center;
-            color: #4440F7;
-            margin: 0px 12px 0;
-            border: 1px solid #4440F7;
-            border-radius: 20px;
-            justify-content: center;
-            align-items: center;
-        }
-        .categories-link{
-            display: block;
-            padding: 8px 21px;
-            overflow: visible;
-        }
-        .categories-others{
-            display: block;
-            position: static;
-            font-size: 12px;
-            line-height: 16px;
-            text-align: center;
-            color: #4440F7;
-            margin: 0px 12px 0;
-            border: 1px solid #4440F7;
-            border-radius: 20px;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 48px 8px 24px;
-        }
-        .categories-list-others{
-            display: none;
-        }
-        .categories-list-others.is-open{
-            width: 180%;
-            height: 320px;
-            overflow-y:scroll ;
+    }
+
+    .categories-item-tablet{
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        color: #4440F7;
+        margin: 0px 12px 0;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .categories-link{
+        display: block;
+        padding: 8px 24px;
+        cursor: pointer;
+    }
+    .categories-others-menu{
+        display: flex;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        color: #4440F7;
+        margin: 0px 12px 0;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 48px 8px 24px;
+    }
+    .categories-list-others.is-open{
+        height: 320px;
+        overflow-y:scroll ;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         position: absolute;
+        top: 48px;
+        right: 200px;
         box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
         color: #4B48DB;
         border-radius: 20px;
-        }
-        .categories-item-other{
-            position: relative;
-            font-size: 12px;
-            line-height: 16px;
-            text-align: center;
-            letter-spacing: 0.01em;
-            color: #4440F7;
-            margin: 12px 24px 0 12px;
-        }
-        .categories-button-other{
-            display: block;
-            background-color: transparent;
-            border-color: transparent;
-            position: absolute;
-            top: 6px;
-            right: 22px;
-        }
-
+        padding: 0px 24px;
     }
-    @media screen and (min-width: 1280px) {
-
-        .input-calendar{
-            padding: 5px 5px 5px 20px;
-            text-align: center;
-            width: 152px;
-            display: block;
-            transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            outline: none;
-            border-radius: 20px;
-            border: 1px solid #111321;
-            background-color: #FFF;
-        }
-
-        .categories-list-others.is-open{
+    .categories-item-tablet-other{
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #4440F7;
+        margin: 12px 24px 0 12px;
+    }
+    .button-categories{
+        position: absolute;
+        top: 6px;
+        right: 34px;
+        width: 14px;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .categories-list.is-desktop{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        position: static;
+        border: none;
+    }
+    .categories-list-others.is-open{
+        height: 320px;
+        overflow-y:scroll ;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         position: absolute;
+        top: 38px;
+        right: 320px;
         box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
         color: #4B48DB;
         border-radius: 20px;
-        }
-        .categories-item-other{
-            margin: 14px 24px 0 24px;
-        }
-        .categories-button-other{
-            display: block;
-            top: 6px;
-            right: 22px;
-        }
-        .calendar-descr{
-            display: flex;
-            align-items: center;
-            margin-left: 111px;
-            margin-right: 37px;
-            margin-bottom: 0;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 25px;
-            color: #111321;
-        }
+        padding: 0px 24px;
     }
+}
