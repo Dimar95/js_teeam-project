@@ -72,17 +72,3 @@ function onFormatingString(string) {
   const formatingString = string[0].toUpperCase() + string.slice(1, string.length)
   return formatingString;
 }
-
-
-
-
-
-// function onFormatingString(string) {
-//   if (string.length > 11) {
-//     const lengthString = string.slice(0, 11) + "..."
-//     return lengthString
-//   } else{
-//     const formatingString = string[0].toUpperCase() + string.slice(1, string.length)
-//     return formatingString;
-//   }
-// }
