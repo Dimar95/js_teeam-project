@@ -9,6 +9,8 @@
 @import url('./utils/common.css');
 @import url('./home-header.css');
 @import url('./categories.css');
+@import url('./theme.css');
+@import url('./registr.css');
 
 :root {
   font-family: 'Manrope', sans-serif;

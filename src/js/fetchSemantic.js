@@ -7,7 +7,7 @@ export async function fetchCategories() {
     
     return data.data.results
   } catch (error) {
-  console.error(error);
+    
 }
   }
   // https://api.nytimes.com/svc//news/v3/content/section-list.json?api-key=eQ8t8FWqeAGnKDTtIFrHmgZCflFrUTcV

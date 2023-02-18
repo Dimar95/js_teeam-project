@@ -61,10 +61,9 @@ function onMarkupTablet(item, other) {
 }
 
 function onMarkupSixCategories(item, other) {
-    ulCategoriesRef.insertAdjacentHTML('beforeend',item)
-    ulCategoriesOtherRef.insertAdjacentHTML('beforeend',other)
+    ulCategoriesRef.insertAdjacentHTML('beforeend', item)
+    ulCategoriesOtherRef.insertAdjacentHTML('beforeend', other)
     ulCategoriesRef.classList.add('is-desktop')
-
 }
 
 function categoriesIsOpen() {
