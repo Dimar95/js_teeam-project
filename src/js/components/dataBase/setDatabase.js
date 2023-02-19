@@ -11,4 +11,3 @@ export function writeUserData(userId, object) {
     const db = getDatabase();
     set(ref(db, 'users/' + userId), {...object});
   }
-

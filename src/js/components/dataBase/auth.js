@@ -1,6 +1,11 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { onGetUserName } from "./onGetUserName";
+import { onSetCookie } from "./setCookie"
+import { onGetCookie } from "./getCookie"
+import { onDeleteCookie } from "./deleteCookie"
+
+// config
 Notify.init({
     timeout: 7000,
     clickToClose: true,
@@ -14,25 +19,25 @@ const refs = {
     buttonRegistr: document.querySelector('.registr'),
     buttonLogout: document.querySelector('.logout')
 }
-onButtonDisablet()
+// config
 
+onAuthorizationCheck()
 
 refs.formRef.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(e.target.pass.value);
-    console.log(e.target.email.value);
-    authUser( e.target.pass.value, e.target.email.value)
+    onAuthorizationUser( e.target.pass.value, e.target.email.value)
 })
 
-export const authUser = function(password, email){
+export const onAuthorizationUser = function(password, email){
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
         return user
-    }).then((user)=> {
-        localStorage.setItem('user', user.uid)
-        onButtonDisablet()
+    })
+    .then((user)=> {
+        onSetCookie('user', user.uid)
+        onAuthorizationCheck()
      onGetUserName(user.uid)  
     })
     .catch((error) => {
@@ -40,10 +45,9 @@ export const authUser = function(password, email){
         const errorMessage = error.message;
         console.log(errorMessage);
         if (errorMessage ==='Firebase: Error (auth/user-not-found).') {
-            Notify.failure(`Такого користувача не знайдено. Необхідно зареєструватись`)
+            Notify.failure(`User is not foundю Register please`)
         } else if(errorMessage === 'Firebase: Error (auth/wrong-password).'){
-            Notify.failure(`Помилковий пароль`)
-
+            Notify.failure(`The password is incorrect`)
         }
         else {
             Notify.failure(`${errorMessage}`)
@@ -51,18 +55,19 @@ export const authUser = function(password, email){
     });
 }
 
-function onButtonDisablet() {
-    if (localStorage.getItem('user')) {
+function onAuthorizationCheck() {
+    if (onGetCookie('user')) {
         refs.buttonRegistr.classList.toggle('displayNone')
         refs.buttonLogin.classList.toggle('displayNone')
         refs.buttonLogout.classList.toggle('displayNone')
         refs.buttonLogout.addEventListener('click', onLogout)
     } 
-
 }
+
 function onLogout() {
-    localStorage.removeItem('user');
+    onDeleteCookie('user');
     refs.buttonRegistr.classList.toggle('displayNone')
     refs.buttonLogin.classList.toggle('displayNone')
     refs.buttonLogout.classList.toggle('displayNone')
 }
+

@@ -9,7 +9,6 @@ const dbRef = ref(getDatabase());
 get(child(dbRef, `users/${userId}`)).then((snapshot) => {
   if (snapshot.exists()) {
       const user = snapshot.val()
-      console.log(user);
       Notify.success(`Команда номер 1 вітає Вас ${user.name}`)
   } else {
     console.log("No data available");
