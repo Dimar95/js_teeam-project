@@ -146,6 +146,7 @@ body.modal-open{
 }
 
 .modal--submit {
+    
     letter-spacing: 0.06em;
     color: #FFFFFF;
     font-weight: 700;
@@ -215,4 +216,7 @@ body.modal-open{
 .checkbox:checked~.checkbox--icon {
     border-color: #4B48DB;
     background-color: #2196F3;
+}
+.displayNone{
+    display: none;
 }
