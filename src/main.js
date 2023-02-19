@@ -8,3 +8,4 @@ import './js/components/dataBase/base';
 import './js/components/dataBase/register';
 import './js/components/modal'
 import './js/components/authForm'
+import './js/components/burgerMenu'
