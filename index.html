@@ -7,8 +7,8 @@
     <title>Vanilla App Template</title>
     
 
-    <script type="module" crossorigin src="/js_teeam-project/assets/index-f2eca685.js"></script>
-    <link rel="stylesheet" href="/js_teeam-project/assets/index-2d77fa89.css">
+    <script type="module" crossorigin src="/js_teeam-project/assets/index-aa3edf88.js"></script>
+    <link rel="stylesheet" href="/js_teeam-project/assets/index-6b299ef6.css">
   </head>
 
 
@@ -71,19 +71,17 @@
     </svg>
 </label>
 </form>
-<!-- <div class="theme-site theme-site__mobile">
-    <svg class="mobile-menu__icon-theme sun " width="21" height="21">
-      <use href="../img/icons.svg#icon-sun">
+<button type="button" class="menu-button" date-menu-button aria-expanded="false" aria-label="Перемикач мобільного меню">
+    <svg width="24" height="24" class="menu-button--icon">
+        <use href="/js_teeam-project/assets/symbol-defs-e157f9ce.svg#menu" class="icon-menu"></use>
+        <use href="/js_teeam-project/assets/symbol-defs-e157f9ce.svg#close" class="icon-close"></use>
     </svg>
-    <p class="theme__light">Light</p>
-    <input type="checkbox" id="sitetheme" name="highload">
-    <label for="sitetheme" class="theme-label"></label>
-    <p class="theme__dark">Dark</p>
-      <svg class="mobile-menu__icon-theme moon" width="21" height="21">
-        <use href="../img/icons.svg#icon-moon_theme">
-      </svg>
-      </div> -->
 </button>
+</div>
+<div class="button-box">
+<button type="button" class="login" id="login">Login</button>
+<button type="button" class="logout displayNone" id="Logout">Logout</button>
+<button type="button" class="registr">Registr</button>
 </div>
 </header>
     <div class="backdrop is-hidden" data-modal-auth>
@@ -108,7 +106,7 @@
                         <use href="/js_teeam-project/assets/symbol-defs-e157f9ce.svg#icon-password"></use>
                     </svg>
                 </label>
-                <button type="submit" class="modal--submit" id="submit">Відправити</button>
+                <button type="submit" class="modal--submit submit-auth" id="submit" >Відправити</button>
             </form>
         </div>
     </div>
@@ -153,7 +151,7 @@
                 </span>
             </label>
 
-            <button type="submit" class="modal--submit" id="submitReg">Register</button>
+            <button type="submit" class="modal--submit" id="submitReg" data-submitReg >Register</button>
 
         </form>
 
